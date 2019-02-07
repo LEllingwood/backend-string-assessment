@@ -25,7 +25,10 @@
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
     """Your code goes here.  Edit this docstring."""
-    return
+    if count < 10:
+        return 'Number of donuts: ' + str(count)
+    else:
+        return "Number of donuts: many"
 
 
 # B. both_ends
@@ -35,8 +38,10 @@ def donuts(count):
 # is less than 2, return instead the empty string.
 def both_ends(s):
     """Your code goes here.  Edit this docstring."""
-    return
-
+    if len(s) > 2:
+        return s[0:2] + s[-2:]
+    else:
+        return ""
 
 # C. fix_start
 # Given a string s, return a string
@@ -47,11 +52,13 @@ def both_ends(s):
 # Assume that the string is length 1 or more.
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
+
 def fix_start(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    # """Your code goes here.  Edit this docstring."""
+    end_of_string = s.replace(s[0], "*")
+    return s[0] + end_of_string[1:]
 
-
+# one line alternative: return s[0] +  s.replace(s[0],"*")[1:]
 # D. MixUp
 # Given strings a and b, return a single string with a and b separated
 # by a space '<a> <b>', except swap the first 2 chars of each string.
@@ -61,8 +68,16 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    # first_word = b[0] + b[1] + a[2:]
+    # second_word = a[0] + a[1] + b[2:]
+    first_word = b[:2] + a[2:]
+    second_word = a[:2] + b[2:]
+    return first_word + " " + second_word
 
+#  test(mix_up('mix', 'pod'), 'pox mid')
+#     test(mix_up('dog', 'dinner'), 'dig donner')
+#     test(mix_up('gnash', 'sport'), 'spash gnort')
+#     test(mix_up('pezzy', 'firm'), 'fizzy perm')
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
